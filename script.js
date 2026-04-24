@@ -58,7 +58,7 @@ form.addEventListener("submit", (event) => {
 
   form.reset();
   form.medication.value = "無";
-  formMessage.style.color = "#086f61";
+  formMessage.style.color = "var(--accent)";
   formMessage.textContent = "已新增紀錄。";
 });
 
@@ -75,7 +75,7 @@ clearAllButton.addEventListener("click", () => {
   records = [];
   saveRecords();
   renderRecords();
-  formMessage.style.color = "#086f61";
+  formMessage.style.color = "var(--accent)";
   formMessage.textContent = "已清除全部紀錄。";
 });
 
