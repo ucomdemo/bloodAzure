@@ -8,10 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      const t = localStorage.getItem("theme");
+      if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+    })();
+  </script>
 </head>
 <body>
   <main class="app">
     <header class="app-header">
+      <button id="theme-toggle" class="theme-toggle" aria-label="切換深色模式" title="切換深色/淺色模式">🌙</button>
       <p class="eyebrow">Blood Pressure Tracker</p>
       <h1>血壓管理</h1>
       <p class="subtitle">輸入當下的健康數據，系統會自動記錄日期與時間。</p>

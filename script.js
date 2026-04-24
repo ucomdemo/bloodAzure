@@ -1,10 +1,27 @@
 const STORAGE_KEY = "bp-records";
+const THEME_KEY = "theme";
 
 const form = document.getElementById("bp-form");
 const list = document.getElementById("record-list");
 const emptyState = document.getElementById("empty-state");
 const clearAllButton = document.getElementById("clear-all");
 const formMessage = document.getElementById("form-message");
+const themeToggle = document.getElementById("theme-toggle");
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  themeToggle.textContent = theme === "dark" ? "☀" : "🌙";
+  themeToggle.setAttribute("aria-label", theme === "dark" ? "切換淺色模式" : "切換深色模式");
+}
+
+applyTheme(localStorage.getItem(THEME_KEY) || "light");
+
+themeToggle.addEventListener("click", () => {
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  const next = current === "dark" ? "light" : "dark";
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+});
 
 let records = loadRecords();
 renderRecords();
