@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>血壓管理 App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <p class="eyebrow">Blood Pressure Tracker</p>
+      <h1>血壓管理</h1>
+      <p class="subtitle">輸入當下的健康數據，系統會自動記錄日期與時間。</p>
+    </header>
+
+    <section class="card form-card">
+      <h2>新增紀錄</h2>
+      <form id="bp-form" novalidate>
+        <div class="field-grid">
+          <label>
+            收縮壓 (mmHg)
+            <input id="systolic" name="systolic" type="number" inputmode="numeric" min="1" required placeholder="例如 120">
+          </label>
+
+          <label>
+            舒張壓 (mmHg)
+            <input id="diastolic" name="diastolic" type="number" inputmode="numeric" min="1" required placeholder="例如 80">
+          </label>
+
+          <label>
+            脈搏 (bpm)
+            <input id="pulse" name="pulse" type="number" inputmode="numeric" min="1" required placeholder="例如 72">
+          </label>
+
+          <label>
+            藥物治療
+            <select id="medication" name="medication" required>
+              <option value="無">無</option>
+              <option value="已服藥">已服藥</option>
+              <option value="未服藥">未服藥</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="full-width">
+          備註
+          <textarea id="note" name="note" rows="3" placeholder="可填寫頭暈、睡眠、飲食等資訊"></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit">儲存紀錄</button>
+          <p id="form-message" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="card list-card">
+      <div class="list-title">
+        <h2>血壓紀錄清單</h2>
+        <button id="clear-all" type="button" class="ghost">清除全部</button>
+      </div>
+      <ul id="record-list" class="record-list"></ul>
+      <p id="empty-state" class="empty">目前尚無紀錄。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

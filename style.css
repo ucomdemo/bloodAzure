@@ -1,0 +1,262 @@
+:root {
+  --bg: #eef4f6;
+  --panel: #ffffff;
+  --ink: #1a2a34;
+  --muted: #5c6e79;
+  --line: #d0dde3;
+  --accent: #0a8f7b;
+  --accent-strong: #086f61;
+  --warn: #cc4f3f;
+  --shadow: 0 14px 40px rgba(9, 44, 54, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 20%, #cde8dd 0%, transparent 28%),
+    radial-gradient(circle at 85% 8%, #d9eef5 0%, transparent 24%),
+    linear-gradient(135deg, #ecf3f7 0%, #f7fbfc 50%, #edf7f6 100%);
+  min-height: 100vh;
+}
+
+.app {
+  width: min(980px, calc(100% - 2rem));
+  margin: 2.5rem auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.app-header {
+  background: linear-gradient(120deg, #113546, #0a8f7b);
+  color: #fff;
+  border-radius: 18px;
+  padding: 1.4rem 1.4rem 1.6rem;
+  box-shadow: var(--shadow);
+  animation: rise 420ms ease-out;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+h1 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+}
+
+.subtitle {
+  margin: 0;
+  color: #e8fbf5;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.15rem;
+  box-shadow: var(--shadow);
+  animation: rise 480ms ease-out;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  font-size: 1.15rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #c1d1d9;
+  border-radius: 10px;
+  padding: 0.56rem 0.7rem;
+  color: var(--ink);
+  background: #fafdff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #8ad1c4;
+  border-color: #72bfaf;
+}
+
+.full-width {
+  margin-top: 0.9rem;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 0.62rem 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-strong);
+}
+
+.ghost {
+  background: #f5f7fa;
+  color: #345;
+  border: 1px solid #d8e2e8;
+}
+
+.ghost:hover {
+  background: #ebf1f5;
+}
+
+#form-message {
+  margin: 0;
+  color: var(--warn);
+  font-weight: 600;
+}
+
+.list-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.record-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.record-item {
+  border: 1px solid #dbe6eb;
+  border-left: 5px solid #0a8f7b;
+  background: #fbfeff;
+  border-radius: 12px;
+  padding: 0.72rem;
+  animation: fade 280ms ease;
+}
+
+.record-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.bp {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.pulse,
+.med,
+.time {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.note {
+  margin: 0.2rem 0 0;
+  color: #394c57;
+  white-space: pre-wrap;
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .app {
+    width: min(100%, calc(100% - 1rem));
+    margin: 1rem auto 1.3rem;
+    gap: 0.9rem;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header,
+  .card {
+    border-radius: 14px;
+  }
+
+  .list-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
